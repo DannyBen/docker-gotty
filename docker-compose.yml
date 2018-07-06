@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  bash:
+    build: .
+    entrypoint: bash
+
+  web:
+    build: .
+    ports: ["3000:3000"]
