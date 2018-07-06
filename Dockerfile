@@ -1,16 +1,21 @@
 FROM alpine:edge
 
+WORKDIR /app
+
 ENV PS1 "\n\n> \W \$ "
 ENV TERM=linux
 ENV PACKAGES bash
 
 RUN apk --no-cache add $PACKAGES
 
-WORKDIR /app
+ENV GOTTY_BINARY https://github.com/yudai/gotty/releases/download/v1.0.1/gotty_linux_386.tar.gz
 
-COPY files/gotty-386 /usr/local/bin/gotty
+RUN wget $GOTTY_BINARY -O gotty.tar.gz && \
+    tar -xzf gotty.tar.gz -C /usr/local/bin/ && \
+    rm gotty.tar.gz && \
+    chmod +x /usr/local/bin/gotty
+
 COPY files/home/* /root/
-RUN chmod +x /usr/local/bin/gotty
 
 ENTRYPOINT ["gotty"]
 CMD ["--permit-write", "--reconnect", "bash"]

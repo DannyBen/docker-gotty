@@ -1,12 +1,12 @@
 version: '3'
 
 services:
-  bash: &default
+  bash:
     build: .
-    name: dannyben/gotty
+    image: dannyben/gotty
     entrypoint: bash
 
   web:
-    <<: *default
-    entrypoint: gotty
+    build: .
+    image: dannyben/gotty
     ports: ["3000:3000"]
