@@ -16,6 +16,7 @@ RUN wget $GOTTY_BINARY -O gotty.tar.gz && \
     chmod +x /usr/local/bin/gotty
 
 COPY files/home/* /root/
+COPY app /app
 
 ENTRYPOINT ["gotty"]
 CMD ["--permit-write", "--reconnect", "bash"]

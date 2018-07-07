@@ -1,12 +1,8 @@
 version: '3'
 
 services:
-  bash:
-    build: .
-    image: dannyben/gotty
-    entrypoint: bash
-
-  web:
+  gotty:
     build: .
     image: dannyben/gotty
     ports: ["3000:3000"]
+    volumes: ["./app:/app"]
