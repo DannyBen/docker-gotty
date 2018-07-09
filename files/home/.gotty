@@ -6,4 +6,5 @@ preferences {
   background_color = "white"
   foreground_color = "black"
   cursor_color = "blue"
+  ctrl_v_paste = true
 }

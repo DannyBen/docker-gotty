@@ -5,4 +5,6 @@ services:
     build: .
     image: dannyben/gotty
     ports: ["3000:3000"]
-    volumes: ["./app:/app"]
+    volumes:
+    - "./app:/app"
+    - "./files/home:/root"
