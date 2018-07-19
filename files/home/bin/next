@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+step=0
+
+[[ -f "$STEPFILE" ]] && step=$(<$STEPFILE)
+
+case $step in
+  0 ) 
+    echo 1 > $STEPFILE
+    echo "---------------------------------------------------"
+    echo "Welcome to the workshop." 
+    echo "Please start by creating your own directory."
+    echo "When done type 'next'."
+    echo "---------------------------------------------------"
+    ;;
+  1 ) 
+    echo 2 > $STEPFILE
+    echo "---------------------------------------------------"
+    echo "Step 1: Now do something else." 
+    echo "When done type 'next'."
+    echo "---------------------------------------------------"
+    ;;
+  2 )
+    echo 3 > $STEPFILE
+    echo "---------------------------------------------------"
+    echo "Step 2: Now do another something else." 
+    echo "When done type 'next'."
+    echo "---------------------------------------------------"
+    ;;
+  * ) 
+    echo "---------------------------------------------------"
+    echo "All done."
+    echo "---------------------------------------------------"
+    ;;
+esac
+
