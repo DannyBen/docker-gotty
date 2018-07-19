@@ -15,7 +15,7 @@ RUN wget $GOTTY_BINARY -O gotty.tar.gz && \
     rm gotty.tar.gz && \
     chmod +x /usr/local/bin/gotty
 
-COPY files/home/* /root/
+COPY files/home/ /root/
 COPY app $WORKDIR
 
 ENTRYPOINT ["gotty"]
