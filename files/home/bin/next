@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 step=0
+clear
 
 [[ -f "$STEPFILE" ]] && step=$(<$STEPFILE)
 
