@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+step=0
+
+[[ -f "$STEPFILE" ]] && step=$(<$STEPFILE)
+
+next_step=$(($step-2))
+(($next_step < 0)) && next_step=0
+
+echo $next_step > $STEPFILE
+next

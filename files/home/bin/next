@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+source /root/dialog.sh
 
 step=0
 clear
@@ -8,30 +9,37 @@ clear
 case $step in
   0 ) 
     echo 1 > $STEPFILE
-    echo "---------------------------------------------------"
-    echo "Welcome to the workshop." 
-    echo "Please start by creating your own directory."
-    echo "When done type 'next'."
-    echo "---------------------------------------------------"
+    start_dialog
+    caption "Welcome to the workshop." 
+    message "Please start by creating your own directory."
+    separator
+    message "Type 'next' to continue." true
+    message "You can always type 'prev' to go back."
+    end_dialog
     ;;
   1 ) 
     echo 2 > $STEPFILE
-    echo "---------------------------------------------------"
-    echo "Step 1: Now do something else." 
-    echo "When done type 'next'."
-    echo "---------------------------------------------------"
+    start_dialog
+    caption "Step 1: Now do something else." 
+    message ""
+    message "  $ echo do something else" true
+    message ""
+    message "When done type 'next'."
+    end_dialog
     ;;
   2 )
     echo 3 > $STEPFILE
-    echo "---------------------------------------------------"
-    echo "Step 2: Now do another something else." 
-    echo "When done type 'next'."
-    echo "---------------------------------------------------"
+    start_dialog
+    caption "Step 2: Now do another something else." 
+    message "This is what you need to do"
+    separator
+    message "When done type 'next'."
+    end_dialog
     ;;
   * ) 
-    echo "---------------------------------------------------"
-    echo "All done."
-    echo "---------------------------------------------------"
+    start_dialog
+    message "All done."
+    end_dialog
     ;;
 esac
 
