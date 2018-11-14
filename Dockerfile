@@ -20,5 +20,3 @@ COPY app $WORKDIR
 
 ENTRYPOINT ["gotty"]
 CMD ["--permit-write", "--reconnect", "bash"]
-
-EXPOSE 3000
