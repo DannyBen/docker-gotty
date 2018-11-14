@@ -18,7 +18,5 @@ RUN wget $GOTTY_BINARY -O gotty.tar.gz && \
 COPY files/home/* /root/
 COPY app $WORKDIR
 
-ENTRYPOINT ["gotty"]
-CMD ["--permit-write", "--reconnect", "bash"]
-
-EXPOSE 3000
+ENTRYPOINT ["sh", "-c"]
+CMD ["gotty --port ${PORT:-3000} --permit-write --reconnect bash"]
